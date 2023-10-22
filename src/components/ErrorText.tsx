@@ -35,6 +35,6 @@ const ErrorText = forwardRef<HTMLInputElement, Props>(({
   
   if (!error || !isTouched) return <span />
 
-  return <span className={`error ${className}`}>{error}</span>
+  return <span className={`text-red-400 ${className}`}>{error}</span>
 })
 export default ErrorText

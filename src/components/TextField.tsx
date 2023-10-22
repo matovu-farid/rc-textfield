@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import ErrorText from './ErrorText'
-import styles from "./TextField.module.css"
 interface Props {
   value: string
   onChange: (value: string) => void
@@ -17,16 +16,15 @@ export function TextField({
 }:Props) {
   const customRef = useRef(null)
   return (
-    <div className="flex flex-col">
-      <div className={`${styles.textfieldprefix} ${className || styles.textfield}`} data-prefix={prefix}>
+    <div className="flex flex-col ">
+      <div className={`relative before:content-['${prefix}'] p-2  before:p-2 bg-gray-200 rounded-lg outline-black ${className}`}>
         
 
         <input
           ref={customRef}
           value={value}
           onChange={(e)=>onChange(e.target.value)}
-          className={styles.input}
-        />
+          className={`outline-none p-2 bg-transparent ${className}`}        />
       </div>
       <ErrorText
         ref={customRef}
