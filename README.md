@@ -1,27 +1,70 @@
-# React + TypeScript + Vite
+# rc-textfield
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, flexible, and elegant text field component library for React applications. The primary component of this library is `TextField`, designed to get your form input up and running with minimal effort and a clean, consistent look.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+npm install rc-textfield
+# or
+yarn add rc-textfield
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Usage
+
+Below is a basic example demonstrating how to use the `TextField` component.
+
+```jsx
+import React, { useState } from 'react';
+import TextField from 'rc-textfield';
+
+function App() {
+  const [value, setValue] = useState('');
+
+  return (
+    <TextField
+      value={value}
+      onChange={setValue}
+      prefix="$"
+      validations={[
+        {
+          check: () => value.length > 0,
+          message: 'This field is required.'
+        }
+      ]}
+    />
+  );
+}
+
+export default App;
+```
+
+## API
+
+### `TextField`
+
+A text field component that handles common input scenarios with ease.
+
+#### Props
+
+- `value` (string): The current value of the text field.
+- `onChange` (function): A callback that fires whenever the text field value changes.
+- `className` (string, optional): Additional CSS classes to apply to the text field.
+- `validations` (array, optional): An array of validation objects to apply to the text field.
+- `prefix` (string, optional): A string to display before the input field.
+
+## Styling
+
+The `rc-textfield` components are styled using Tailwind CSS, providing a clean and modern look that's fully customizable. You can override the default styles by applying your own CSS classes through the `className` prop on both `TextField` and `ErrorText` components.
+
+## Contributing
+
+If you have suggestions for how `rc-textfield` could be improved, or want to report a bug, open an issue! We'd love all and any contributions.
+
+For more, check out the [docs](#).
+
+## License
+
+MIT © [Farid Matovu]
+
+
