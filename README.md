@@ -54,6 +54,12 @@ A text field component that handles common input scenarios with ease.
 - `validations` (array, optional): An array of validation objects to apply to the text field.
 - `prefix` (string, optional): A string to display before the input field.
 - `styles` (object, optional): An object to override default styles for different parts of the component.
+- `validateOn` (enum|string, optional): This determines when the validation function is run. 
+               Options ["initialization","touched", "submitted"]
+               Default - "touched"
+
+
+
 
 
 ## Styling
@@ -91,6 +97,13 @@ Here's an example of how to use the `validations` prop to add required field val
 
 In this example, the check function checks whether the text field value is non-empty, and the message 'This field is required.' is displayed below the text field whenever it's empty.
 
+### Validation States
+The validation functions can be run in three states.
+| State        | Description                                                                      |
+|--------------|----------------------------------------------------------------------------------|
+|initialization| The validation checks are run immediately after the component is innitialized    |
+|touched       | The validation checks are run when the use has typed into the textfield.(Default)|
+|submitted     | The validation checks are run when the submit event is triggered                 |
 
 ## Contributing
 

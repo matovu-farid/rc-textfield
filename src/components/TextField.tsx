@@ -41,7 +41,6 @@ export function TextField({
     container: `relative before:content-['${prefix}'] p-2  before:p-2 border border-gray-200  rounded-lg outline-black`,
     error: 'w-full text-red-400',
   }
-  console.log('validateState', validateOn)
 
   const [isTouched, setIsTouched] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)

@@ -23,7 +23,7 @@ const ErrorText = forwardRef<React.DetailedHTMLProps<React.InputHTMLAttributes<H
   function validate() {
     if (!validators) return null
     for (const validator of validators) {
-      if (validator.check(value)) {
+      if (!validator.check(value)) {
         return validator.message
       }
     }

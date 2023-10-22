@@ -13,12 +13,12 @@ function App() {
       validators={[
         
         {
-          check: (value) => !value?.includes('@'),
+          check: (value) => value?.includes('@'),
           message: 'Must be a valid email',
         }
       ]}
       label="Email"
-      validateOn={ValidateState.Submitted}
+      validateOn={ValidateState.Initial}
 
     />
   )
