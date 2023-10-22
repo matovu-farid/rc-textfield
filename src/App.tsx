@@ -1,6 +1,7 @@
 import './App.css'
 import TextField from './components/TextField'
 import { useState } from 'react'
+import { ValidateState } from './types'
 
 function App() {
   const [value, setValue] = useState('')
@@ -17,6 +18,7 @@ function App() {
         }
       ]}
       label="Email"
+      validateOn={ValidateState.Submitted}
 
     />
   )

@@ -1,3 +1,3 @@
 export enum ValidateState {
-  Initial, Touched, Submitted
+  Initial="initialization", Touched="touched", Submitted="submitted"
 }

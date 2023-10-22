@@ -2,9 +2,9 @@ import {  useRef, useState } from 'react'
 import ErrorText from './ErrorText'
 import { ValidateState } from '../types'
 interface Props {
-  value: string
-  onChange: (value: string) => void
-  onSubmit: (value: string) => void
+  value?: string
+  onChange?: (value: string) => void
+  onSubmit?: (value: string) => void
   validators?: {
     check: (value: string) => boolean
     message: string
@@ -19,7 +19,7 @@ interface Props {
     error?: string
   }
   lazy?: boolean
-  validateState?: ValidateState
+  validateOn?: ValidateState
 }
 
 export function TextField({
@@ -31,7 +31,7 @@ export function TextField({
   label,
   styles: argStyles, 
   prefix = '', 
-  validateState = ValidateState.Touched,
+ validateOn = ValidateState.Touched,
 }: Props) {
   const customRef = useRef(null)
   const id = "input_" + Math.random().toString(36).substring(2)
@@ -41,6 +41,7 @@ export function TextField({
     container: `relative before:content-['${prefix}'] p-2  before:p-2 border border-gray-200  rounded-lg outline-black`,
     error: 'w-full text-red-400',
   }
+  console.log('validateState', validateOn)
 
   const [isTouched, setIsTouched] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -83,7 +84,7 @@ export function TextField({
         className={styles.error}
         isTouched={isTouched}
         isSubmitted={isSubmitted}
-        validateState={validateState}
+        validateState={validateOn}
       />
     </div>
   )
