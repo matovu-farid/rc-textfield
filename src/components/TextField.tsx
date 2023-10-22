@@ -4,15 +4,15 @@ interface Props {
   value: string
   onChange: (value: string) => void
   className?: string
-  validations?: {
-    check: () => boolean
+  validators?: {
+    check: (value: string) => boolean
     message: string
   }[],
   prefix?: string,
 }
 
 export function TextField({
-  value, onChange, className,  validations, prefix = '',
+  value, onChange, className,  validators, prefix = '',
 }:Props) {
   const customRef = useRef(null)
   return (
@@ -24,11 +24,12 @@ export function TextField({
           ref={customRef}
           value={value}
           onChange={(e)=>onChange(e.target.value)}
-          className={`outline-none p-2 bg-transparent ${className}`}        />
+          className={` w-full outline-none p-2 bg-transparent ${className}`}        />
       </div>
       <ErrorText
         ref={customRef}
-        validations={validations}
+        validators={validators}
+        value = {value}
       />
     </div>
   )
