@@ -17,6 +17,7 @@ Below is a basic example demonstrating how to use the `TextField` component.
 ```jsx
 import React, { useState } from 'react';
 import TextField from 'rc-textfield';
+import 'rc-textfield/styles';
 
 function App() {
   const [value, setValue] = useState('');
@@ -53,9 +54,38 @@ A text field component that handles common input scenarios with ease.
 - `validations` (array, optional): An array of validation objects to apply to the text field.
 - `prefix` (string, optional): A string to display before the input field.
 
+
 ## Styling
 
 The `rc-textfield` components are styled using Tailwind CSS, providing a clean and modern look that's fully customizable. You can override the default styles by applying your own CSS classes through the `className` prop on both `TextField` and `ErrorText` components.
+
+To apply the default styles, import the stylesheet from the library by adding the following line to your project:
+
+```javascript
+import 'rc-textfield/styles';
+```
+
+## Validation
+
+The `TextField` component supports validation through the `validations` prop. This prop accepts an array of validation objects, each containing a `check` function and a `message` string. The `check` function should return a boolean indicating whether the validation passed (true) or failed (false). The `message` string is the error message that will be displayed when the validation fails.
+
+Here's an example of how to use the `validations` prop to add required field validation to a `TextField` component:
+
+```jsx
+<TextField
+  value={value}
+  onChange={setValue}
+  validations={[
+    {
+      check: () => value.length > 0,
+      message: 'This field is required.'
+    }
+  ]}
+/>
+```
+
+In this example, the check function checks whether the text field value is non-empty, and the message 'This field is required.' is displayed below the text field whenever it's empty.
+
 
 ## Contributing
 
