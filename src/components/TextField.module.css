@@ -1,0 +1,38 @@
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+
+
+.textfield {
+    position: relative;
+    padding: 0.5rem;
+    background-color: #e5e7eb;
+    border-radius: 0.375rem;
+    outline-color: black;
+    width: 100%;
+}
+
+.textfieldprefix::before {
+    content: attr(data-prefix);
+    padding: 0.5rem;
+}
+
+.error {
+  color: red;
+  color: red;
+}
+.input {
+    outline: none;
+    padding: 0.5rem;
+    background-color: transparent;
+    border: none;
+
+}
+
