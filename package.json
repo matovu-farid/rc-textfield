@@ -1,7 +1,7 @@
 {
   "name": "rc-textfield",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "files": [
     "/dist"
   ],
@@ -9,6 +9,25 @@
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "homepage": "https://github.com/matovu-farid/rc-textfield#readme",
+"description": "rc-textfield: A sleek, easy-to-use React component library offering a versatile TextField component with built-in validation error messaging, crafted for seamless integration and customization in your project.",
+    "keywords": [
+    "react",
+    "react-component",
+    "react-textfield",
+    "react-textfield-component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matovu-farid/rc-textfield"
+  },
+  "bugs": {
+    "url": "https://github.com/matovu-farid/rc-textfield/issues",
+    "email": "matovu90@gmail.com"
+  },
+  "author": "Farid Matovu <matovu90@gmail.com>",
+
+    
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
