@@ -53,6 +53,7 @@ A text field component that handles common input scenarios with ease.
 - `className` (string, optional): Additional CSS classes to apply to the text field.
 - `validations` (array, optional): An array of validation objects to apply to the text field.
 - `prefix` (string, optional): A string to display before the input field.
+- `styles` (object, optional): An object to override default styles for different parts of the component.
 
 
 ## Styling
@@ -60,6 +61,10 @@ A text field component that handles common input scenarios with ease.
 The `rc-textfield` components are styled using Tailwind CSS, providing a clean and modern look that's fully customizable. You can override the default styles by applying your own CSS classes through the `className` prop on both `TextField` and `ErrorText` components.
 
 To apply the default styles, import the stylesheet from the library by adding the following line to your project:
+
+You can also customize the appearance of the TextField component by passing a styles prop. The styles prop should be an object with keys label, input, container, and error, and values as CSS class strings.
+
+
 
 ```javascript
 import 'rc-textfield/styles';

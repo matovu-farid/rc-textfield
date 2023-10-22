@@ -1,6 +1,9 @@
 
 
-import { forwardRef, useEffect, useState } from 'react'
+import { forwardRef } from 'react'
+import { ValidateState } from '../types'
+
+
 
 interface Props {
   className?: string
@@ -9,11 +12,14 @@ interface Props {
     message: string
   }[]
   value: string
+  validateState?: ValidateState
+  isTouched?: boolean
+  isSubmitted?: boolean
+
 }
-const ErrorText = forwardRef<HTMLInputElement, Props>(({
-  className,  validators,value
-}, ref) => {
-  const [isTouched, setIsTouched] = useState(false)
+const ErrorText = forwardRef<React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, Props>(({
+  className, validators, value, validateState = ValidateState.Touched, isTouched, isSubmitted
+}) => {
   function validate() {
     if (!validators) return null
     for (const validator of validators) {
@@ -24,18 +30,20 @@ const ErrorText = forwardRef<HTMLInputElement, Props>(({
     return null
   }
   const error = validate()
-    
 
-  useEffect(() => {
-      
-    if (ref && 'current' in ref && ref.current && ref.current.value) {
-      setIsTouched(true)
-    }
-  }, [ref, error])
 
-  
-  if (!error || !isTouched) return <span />
+ 
 
-  return <span className={`w-full text-red-400 ${className}`}>{error}</span>
+  const validateStateMap = {
+    [ValidateState.Initial]: true,
+    [ValidateState.Touched]: isTouched,
+    [ValidateState.Submitted]: isSubmitted,
+  }
+
+
+
+  if (!error || !validateStateMap[validateState]) return <span />
+
+  return <span className={className}>{error}</span>
 })
 export default ErrorText
